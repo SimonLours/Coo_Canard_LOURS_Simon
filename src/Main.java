@@ -2,7 +2,34 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe principale du simulateur de combat "Canard Fighter Simulator".
+ * <p>
+ * Cette classe fournit une interface textuelle permettant à l'utilisateur de créer des canards,
+ * de sélectionner deux canards pour un combat, et de simuler un combat tour par tour.
+ * Chaque canard peut choisir d'effectuer une attaque normale ou d'utiliser sa capacité spéciale.
+ * </p>
+ *
+ * @version 1.0
+ */
 public class Main {
+
+    /**
+     * Point d'entrée de l'application Canard Fighter Simulator.
+     * <p>
+     * Affiche un menu avec les options suivantes :
+     * <ul>
+     *   <li>1. Créer un canard</li>
+     *   <li>2. Lancer une bataille</li>
+     *   <li>3. Quitter</li>
+     * </ul>
+     * L'utilisateur peut créer des canards en renseignant leur nom, type (Eau, Feu, Glace, Vent),
+     * points de vie et points d'attaque. Une bataille peut ensuite être lancée entre deux canards sélectionnés.
+     * Chaque round permet aux deux canards de choisir s'ils attaquent ou utilisent leur capacité spéciale.
+     * </p>
+     *
+     * @param args les arguments de la ligne de commande (non utilisés)
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Canard> canards = new ArrayList<>();
@@ -96,6 +123,7 @@ public class Main {
                     System.out.println("\nDébut du combat entre " + canard1.getNom() + " et " + canard2.getNom());
 
                     int round = 1;
+                    // Boucle de combat : les canards s'affrontent tour par tour jusqu'à ce que l'un soit KO.
                     while (!canard1.estKO() && !canard2.estKO()) {
                         System.out.println("\n--- Round " + round + " ---");
 
