@@ -30,6 +30,11 @@ public abstract class Canard {
     public void attaquer(Canard autreCanard) {
         double multiplicateur = TypeCanard.getMultiplicateur(this.type, autreCanard.getType());
         int degats = (int)(pointsAttaque * multiplicateur);
+        // Probabilité de 10 % pour une attaque critique
+        if (Math.random() < 0.1) {
+            System.out.println(this.nom + " réalise une attaque critique !");
+            degats *= 2;
+        }
         System.out.println(this.nom + " attaque " + autreCanard.getNom() +
                 " et inflige " + degats + " points de dégâts.");
         autreCanard.subirDegats(degats);
