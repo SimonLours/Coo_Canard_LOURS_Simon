@@ -1,13 +1,13 @@
 # Questionnements sur la modélisation
 
 1. **Quelles classes pourraient être abstraites ?**  
-   Je pense que la classe de base `Canard` doit être abstraite, car elle regroupe les caractéristiques et méthodes communes à tous les canards (comme le nom, les points de vie, les points d’attaque, et la méthode d’attaque). On pourrait aussi imaginer des classes abstraites pour les états (par exemple, pour "Brûlé", "Gelé" ou "Paralysé") si plusieurs états partagent des comportements semblables.
+   Je pense que la classe de base `Canard` doit être abstraite, car elle regroupe les caractéristiques et méthodes communes à tous les canards (nom, pv, pa, et la méthode d’attaque). On pourrait aussi imaginer des classes abstraites pour les états si plusieurs états partagent des comportements semblables.
 
 2. **Quels comportements communs pourraient être définis dans une interface ?**  
    Une interface peut regrouper les actions que tous les canards doivent réaliser. Par exemple, une interface `CapaciteSpeciale` avec la méthode `activerCapaciteSpeciale()` permettrait à chaque type de canard d’implémenter sa propre version de cette action. On pourrait aussi créer une interface pour les interactions en combat, avec des méthodes comme `attaquer()` et `subirDegats()`.
 
 3. **Comment représenter un changement de statut (par exemple, brûlé ou paralysé) dans la modélisation ?**  
-   Pour gérer un changement de statut, on peut ajouter un attribut dans la classe `Canard` (ou dans une classe dédiée) qui indique l’état actuel du canard. Par exemple, utiliser un `enum Status` avec des valeurs comme `BRULE`, `PARALYSE` ou `GEL` permet de suivre l’état du canard. On écrira ensuite des méthodes pour appliquer, mettre à jour et retirer ces états pendant le combat.
+   Pour gérer un changement de statut, on peut ajouter un attribut dans la classe `Canard` qui indique l’état actuel du canard. Par exemple, utiliser un `enum Status` avec des valeurs comme `BRULE`, `PARALYSE` ou `GEL` permet de suivre l’état du canard. On écrira ensuite des méthodes pour appliquer, mettre à jour et retirer ces états pendant le combat.
 
 4. **Quels seraient les avantages d’utiliser une classe ou une interface supplémentaire pour gérer les capacités spéciales ?**  
    En créant une classe ou une interface spécifique pour les capacités spéciales, le code devient plus clair et mieux organisé. Cela permet de gérer les capacités de manière indépendante des autres fonctionnalités des canards, ce qui facilite l’ajout ou la modification de ces capacités sans toucher au reste du système. Une interface comme `CapaciteSpeciale` garantit que tous les canards possèdent bien une méthode pour activer leur capacité spéciale.
