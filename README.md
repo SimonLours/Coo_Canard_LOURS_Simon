@@ -24,3 +24,10 @@
 # Diagramme classes
 
 ![image](https://github.com/user-attachments/assets/16d64195-25ed-4fbe-956c-757404e22a75)
+
+
+
+## Réalisation bonus
+
+
+- **Attaques critiques** : Implémentation d'une chance de 10 % pour doubler les dégâts infligés lors d'une attaque.
